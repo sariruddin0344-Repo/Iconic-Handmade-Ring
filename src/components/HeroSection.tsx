@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ThreeRingViewer } from './ThreeRingViewer';
-import { MetalType, GemType } from '../types';
+import { MetalType, GemType, RingStyle } from '../types';
 import { ArrowRight, Compass, ShieldCheck, Sparkles } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -13,8 +13,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onExploreConfigurator,
   onExploreCollection,
 }) => {
-  const [heroMetal, setHeroMetal] = useState<MetalType>('platinum');
-  const [heroGem, setHeroGem] = useState<GemType>('diamond');
+  const [heroStyle, setHeroStyle] = useState<RingStyle>('enamel');
+  const [heroMetal, setHeroMetal] = useState<MetalType>('black');
+  const [heroGem, setHeroGem] = useState<GemType>('none');
 
   const metalsList: { id: MetalType; label: string; tone: string }[] = [
     { id: 'platinum', label: '950 Platinum', tone: 'bg-slate-200' },
@@ -125,14 +126,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 text-[11px] text-zinc-400 tracking-wider uppercase">
                 <span className="flex items-center gap-1.5 text-[#d4af37]">
                   <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
-                  Live 3D Renderer
+                  Interactive 3D Preview
                 </span>
-                <span>The Ethereal Solitaire</span>
+                <span className="text-white font-medium">Artisan Cloisonné Enamel Band</span>
               </div>
 
               {/* 3D Interactive Ring Canvas */}
               <ThreeRingViewer
-                ringStyle="solitaire"
+                ringStyle={heroStyle}
                 metal={heroMetal}
                 gem={heroGem}
                 autoRotate={true}

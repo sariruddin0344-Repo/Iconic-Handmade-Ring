@@ -2,7 +2,7 @@ export type MetalType = 'gold' | 'platinum' | 'rosegold' | 'black';
 
 export type GemType = 'diamond' | 'sapphire' | 'emerald' | 'onyx' | 'ruby' | 'none';
 
-export type RingStyle = 'solitaire' | 'signet' | 'eternity' | 'wave';
+export type RingStyle = 'solitaire' | 'signet' | 'eternity' | 'wave' | 'enamel';
 
 export interface RingProduct {
   id: string;

@@ -25,6 +25,12 @@ export const InteractiveConfigurator: React.FC<InteractiveConfiguratorProps> = (
   // Ring models list
   const styles: { id: RingStyle; title: string; subtitle: string; basePrice: number }[] = [
     {
+      id: 'enamel',
+      title: 'Artisan Cloisonné Enamel (Photo Match)',
+      subtitle: 'Hand-painted Union Jack medallions, red crosses & neon lime accents',
+      basePrice: 1850,
+    },
+    {
       id: 'solitaire',
       title: 'The Ethereal Solitaire',
       subtitle: 'Cathedral prong cradle holding a high-carat brilliant gemstone',

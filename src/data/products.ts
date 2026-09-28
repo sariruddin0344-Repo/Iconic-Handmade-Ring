@@ -1,9 +1,42 @@
 import { RingProduct, Review } from '../types';
 
-export const HERO_IMAGE = '/src/assets/images/hero_cinematic_ring_1790577578539.jpg';
+export const HERO_IMAGE = '/src/assets/images/hero_enamel_ring_1790580254421.jpg';
 export const ATELIER_IMAGE = '/src/assets/images/atelier_artisan_hands_1790577624489.jpg';
+export const USER_RING_IMAGE = '/src/assets/images/enamel_handmade_ring_1790580241292.jpg';
 
 export const PRODUCTS: RingProduct[] = [
+  {
+    id: 'iconic-artisan-enamel-band',
+    name: 'The Artisan Cloisonné Enamel Band',
+    subtitle: 'Handmade Enamel Medallion Ring with Vibrant Motifs',
+    tagline: 'Signature handmade ring with hand-painted Union Jack medallions and vivid neon accents',
+    style: 'enamel',
+    priceUSD: 1850,
+    availableMetals: ['black', 'platinum', 'gold', 'rosegold'],
+    defaultMetal: 'black',
+    availableGems: ['none', 'diamond', 'sapphire'],
+    defaultGem: 'none',
+    image: '/src/assets/images/enamel_handmade_ring_1790580241292.jpg',
+    secondaryImage: '/src/assets/images/hero_enamel_ring_1790580254421.jpg',
+    description: 'Direct from our master bench: the bespoke handcrafted Enamel Band features precision micro-cloisonné round medallions with vibrant British Union Jack flag motifs, brilliant cherry red crosses, azure blue quadrants, and hand-applied neon lime and magenta enamel accent dots. Hand-forged on a satin gunmetal ruthenium base for maximum tactile presence.',
+    craftDetails: {
+      metalPurity: 'Blackened Ruthenium Titanium Core & 925 Sterling Silver',
+      bandWidth: '5.2 mm continuous comfort-fit band',
+      finish: 'Hand-fired high-gloss vitreous enamel on satin brushed chassis',
+      caratWeight: '12 Hand-Set Cloisonné Medallions with Silver Prongs',
+      origin: 'Atelier Handmade Studio',
+    },
+    features: [
+      'Authentic hand-painted and kiln-fired vitreous enamel',
+      'Vivid high-contrast Union Jack & neon accent medallions',
+      'Ergonomic comfort-fit rounded interior for daily wear',
+      'Scratch-resistant ceramic-infused clear glaze coating',
+      'Custom interior engraving available free of charge',
+    ],
+    inStock: true,
+    leadTime: 'Handmade to size · Ships in 4-6 business days',
+    badge: 'Artisan Original',
+  },
   {
     id: 'iconic-solitaire-nocturne',
     name: 'The Ethereal Solitaire',

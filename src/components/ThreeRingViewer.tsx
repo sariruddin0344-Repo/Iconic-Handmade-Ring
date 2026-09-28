@@ -364,6 +364,95 @@ export const ThreeRingViewer: React.FC<ThreeRingViewerProps> = ({
           beadMesh2.position.y = -0.12;
           group.add(beadMesh2);
         }
+      } else if (style === 'enamel') {
+        // Handcrafted Artisan Enamel Band with Cloisonne Medallions
+        const bandGeo = new THREE.CylinderGeometry(1.36, 1.36, 0.54, 96, 1, true);
+        const bandMesh = new THREE.Mesh(bandGeo, metalMat);
+        group.add(bandMesh);
+
+        // Inner comfort-fit sleeve
+        const innerGeo = new THREE.CylinderGeometry(1.24, 1.24, 0.52, 64, 1, true);
+        const innerMesh = new THREE.Mesh(innerGeo, metalMat);
+        group.add(innerMesh);
+
+        // Top and bottom bezel borders
+        const topRim = new THREE.TorusGeometry(1.36, 0.065, 16, 96);
+        const topRimMesh = new THREE.Mesh(topRim, metalMat);
+        topRimMesh.rotation.x = Math.PI / 2;
+        topRimMesh.position.y = 0.27;
+        group.add(topRimMesh);
+
+        const botRim = new THREE.TorusGeometry(1.36, 0.065, 16, 96);
+        const botRimMesh = new THREE.Mesh(botRim, metalMat);
+        botRimMesh.rotation.x = Math.PI / 2;
+        botRimMesh.position.y = -0.27;
+        group.add(botRimMesh);
+
+        // Medallion colors matching user's handmade ring:
+        const colors = [
+          0xd81c34, // Red
+          0x1848cc, // Blue
+          0xef2638, // Red cross
+          0x2255d6, // Blue
+          0xa8e010, // Neon Chartreuse / Lime
+          0xd81c34, // Red
+          0x1848cc, // Blue
+          0xe61875, // Vibrant Magenta
+          0xd81c34, // Red
+          0x2255d6, // Blue
+          0xa8e010, // Neon Lime
+          0xe61875, // Magenta
+        ];
+
+        const numMedallions = 12;
+        for (let i = 0; i < numMedallions; i++) {
+          const theta = (i / numMedallions) * Math.PI * 2;
+          const radius = 1.38;
+          const x = Math.cos(theta) * radius;
+          const z = Math.sin(theta) * radius;
+
+          // White enamel base disc
+          const discGeo = new THREE.CylinderGeometry(0.16, 0.16, 0.05, 24);
+          const discMat = new THREE.MeshPhysicalMaterial({
+            color: 0xfdfbf7,
+            roughness: 0.15,
+            metalness: 0.1,
+            clearcoat: 0.8,
+            envMap,
+            wireframe,
+          });
+          const disc = new THREE.Mesh(discGeo, discMat);
+          disc.position.set(x, 0, z);
+          disc.rotation.y = -theta;
+          disc.rotation.z = Math.PI / 2;
+          group.add(disc);
+
+          // Vivid Enamel central motif
+          const centerGeo = new THREE.SphereGeometry(0.12, 16, 12);
+          const enamelColor = colors[i % colors.length];
+          const enamelMat = new THREE.MeshPhysicalMaterial({
+            color: enamelColor,
+            roughness: 0.12,
+            metalness: 0.2,
+            clearcoat: 0.9,
+            clearcoatRoughness: 0.1,
+            envMap,
+            wireframe,
+          });
+          const enamelDot = new THREE.Mesh(centerGeo, enamelMat);
+          const dotRadius = 1.4;
+          enamelDot.position.set(Math.cos(theta) * dotRadius, 0, Math.sin(theta) * dotRadius);
+          enamelDot.scale.set(0.6, 0.8, 0.8);
+          enamelDot.rotation.y = -theta;
+          group.add(enamelDot);
+
+          // Micro metal cloisonne boundary ring around each medallion
+          const bezelBead = new THREE.TorusGeometry(0.16, 0.022, 12, 24);
+          const beadMesh = new THREE.Mesh(bezelBead, metalMat);
+          beadMesh.position.set(Math.cos(theta) * 1.4, 0, Math.sin(theta) * 1.4);
+          beadMesh.rotation.y = -theta + Math.PI / 2;
+          group.add(beadMesh);
+        }
       } else {
         // --- 4. THE MOLTEN NAUTILUS WAVE ---
         // Organic undulating torus
