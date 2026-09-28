@@ -1,0 +1,6 @@
+{
+  "name": "ICONIC Handmade Ring",
+  "description": "Luxury handcrafted bespoke rings with interactive 3D craftsmanship and timeless design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
